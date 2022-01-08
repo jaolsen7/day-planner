@@ -14,9 +14,15 @@ $(".time-block").each(function() {
     var hour = $(this).attr("id").split("-");
     var hourNum = hour[1];
     var hourParse = parseInt(hourNum);
-
+    
+    if (hourParse < time.hour()) {
+        $(this).addClass("past")
+    }
     if (hourParse === time.hour()) {
-
+        $(this).addClass("present");
+    }
+   if (hourParse > time.hour()) {
+        $(this).addClass("future");
     }
 });
 
